@@ -1,18 +1,19 @@
 {% set version = '1.6.2' %}
+{% set github = 'https://github.com/EDIorg/taxonomyCleanr' %}
+{% set commit = '0814cf931e779526f5dff60307a4a6cddc1292d7' %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-taxonomycleanr
   version: {{ version|replace("-", "_") }}
 
 source:
-  url: https://github.com/EDIorg/taxonomyCleanr/archive/0814cf931e779526f5dff60307a4a6cddc1292d7.tar.gz
+  url: {{ github }}/archive/{{ commit }}.tar.gz
   sha256: 6b83f20a71bc417bec0d214893c4d575cd5f85451cb74d53490cd959fc5972d7
 
 build:
-  merge_build_host: True  # [win]
-  number: 1
+  number: 2
+  noarch: generic
   rpaths:
     - lib/R/lib/
     - lib/
@@ -47,14 +48,15 @@ test:
     - "\"%R%\" -e \"library('taxonomyCleanr')\""  # [win]
 
 about:
-  home: https://github.com/EDIorg/taxonomyCleanr
+  home: {{ github }}
   license: MIT
   summary: Resolves user supplied taxonomy data against a taxonomic authority, retrieves taxonomic 
     serial numbers, updates users data, and creates the taxonomicCoverage metadata element in 
     the Ecological Metadata Language (EML).
   license_family: MIT
   license_file:
-    - '{{ environ["PREFIX"] }}/lib/R/share/licenses/MIT'
+    - {{ environ["PREFIX"] }}/lib/R/share/licenses/MIT
+    - LICENSE
 
 extra:
   recipe-maintainers:
