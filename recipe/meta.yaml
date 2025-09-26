@@ -1,6 +1,6 @@
-{% set version = '1.6.2' %}
+{% set version = '1.6.7' %}
 {% set github = 'https://github.com/EDIorg/taxonomyCleanr' %}
-{% set commit = '0814cf931e779526f5dff60307a4a6cddc1292d7' %}
+{% set commit = '16e584ab4d6b2a2084d0c3bd7198774f08821782' %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ package:
 
 source:
   url: {{ github }}/archive/{{ commit }}.tar.gz
-  sha256: 6b83f20a71bc417bec0d214893c4d575cd5f85451cb74d53490cd959fc5972d7
+  sha256: 4dba7cc0aebe8a7a095219b09d2d5f97727ad263d06f5122321edd9a55f8b25f
 
 build:
-  number: 3
+  number: 0
   noarch: generic
   rpaths:
     - lib/R/lib/
@@ -25,7 +25,7 @@ requirements:
     - r-base
     - r-data.table >=1.12.2
     - r-stringr >=1.2.0
-    - r-taxize >=0.9.99
+    - r-taxize >=0.10.0
     - r-ritis >=1.0.0
     - r-covr
     - r-eml >=2.0.3
@@ -35,7 +35,7 @@ requirements:
     - r-base
     - r-data.table >=1.12.2
     - r-stringr >=1.2.0
-    - r-taxize >=0.9.99
+    - r-taxize >=0.10.0
     - r-ritis >=1.0.0
     - r-covr
     - r-eml >=2.0.3
